@@ -34,4 +34,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  // other config options
+  server: {
+    middlewares: ['~/middlewares/error.js'],
+  },
 }
