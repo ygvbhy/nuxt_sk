@@ -1,9 +1,11 @@
 <template>
-  <Tutorial />
+  <div>
+    <p>넉스트 시작하기</p>
+  </div>
 </template>
 
 <script>
-export default {
-  name: 'IndexPage',
-}
+export default {}
 </script>
+
+<style lang="scss" scoped></style>
