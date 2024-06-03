@@ -37,5 +37,6 @@ export default {
   // other config options
   server: {
     middlewares: ['~/middlewares/error.js'],
+    port: 5000,
   },
 }
