@@ -10,16 +10,18 @@
 <script>
 import axios from 'axios'
 export default {
+  async asyncData() {
+    const response = await axios.get('http://localhost:3000/products')
+    console.log(response)
+    this.products = response.data
+  },
   data() {
     return {
       products: [],
     }
   },
-  async created() {
-    const response = await axios.get('http://localhost:3000/products')
-    console.log(response)
-    this.products = response.data
-  },
+
+  async created() {},
 }
 </script>
 
