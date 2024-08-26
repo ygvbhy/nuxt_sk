@@ -1,15 +1,21 @@
 <template>
-  <div>
-    <p>메인 페이지 입니다.</p>
-    <div>
+  <div class="app">
+    <main>
+      <div>
+        <input type="text" />
+      </div>
       <ul>
-        <li v-for="product in products" :key="product.id">
-          <img :src="product.imageUrl" :alt="product.name" />
+        <li v-for="product in products" :key="product.id" class="item flex">
+          <img
+            :src="product.imageUrl"
+            :alt="product.name"
+            class="product-image"
+          />
           <p>{{ product.name }}</p>
-          <p>{{ product.price }}</p>
+          <span>{{ product.price }}</span>
         </li>
       </ul>
-    </div>
+    </main>
   </div>
 </template>
 
@@ -29,4 +35,36 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.flex {
+  display: flex;
+  justify-content: center;
+}
+.item {
+  display: inline-block;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+.product-image {
+  width: 400px;
+  height: 250px;
+}
+.app {
+  position: relative;
+}
+.cart-wrapper {
+  position: sticky;
+  float: right;
+  bottom: 50px;
+  right: 50px;
+}
+.cart-wrapper .btn {
+  display: inline-block;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+</style>
