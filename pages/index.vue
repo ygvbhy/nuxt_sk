@@ -5,7 +5,12 @@
         <input type="text" />
       </div>
       <ul>
-        <li v-for="product in products" :key="product.id" class="item flex">
+        <li
+          v-for="product in products"
+          :key="product.id"
+          class="item flex"
+          @click="moveToDetailPage(product.id)"
+        >
           <img
             :src="product.imageUrl"
             :alt="product.name"
@@ -21,9 +26,7 @@
 
 <script>
 import axios from 'axios'
-// import ProductList from '../components/ProductList.vue'
 export default {
-  // components: { ProductList },
   async asyncData() {
     const response = await axios.get('http://localhost:3000/products')
     const products = response.data.map((item) => ({
@@ -31,6 +34,11 @@ export default {
       imageUrl: `${item.imageUrl}?random=${Math.random()}`,
     }))
     return { products }
+  },
+  methods: {
+    moveToDetailPage(id) {
+      console.log(id)
+    },
   },
 }
 </script>
