@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <main>
-      <SearchInput />
+      <SearchInput v-model="searchKeyword" />
       <ul>
         <li
           v-for="product in products"
@@ -37,9 +37,18 @@ export default {
     }))
     return { products }
   },
+
+  data() {
+    return {
+      searchKeyword: '',
+    }
+  },
   methods: {
     moveToDetailPage(id) {
       this.$router.push(`detail/${id}`)
+    },
+    updateSearchKeyword(keyword) {
+      this.searchKeyword = keyword
     },
   },
 }
