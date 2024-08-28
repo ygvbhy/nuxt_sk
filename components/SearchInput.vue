@@ -4,6 +4,7 @@
       type="text"
       :value="value"
       @input="$emit('input', $event.target.value)"
+      @keyup.enter="$emit('search')"
     />
     <button type="button" @click="$emit('search')">search</button>
   </div>
